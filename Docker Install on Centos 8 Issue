@@ -1,0 +1,308 @@
+[root@localhost yum.repos.d]# curl -O https://download.docker.com/linux/centos/docker-ce.repo
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1919  100  1919    0     0  14761      0 --:--:-- --:--:-- --:--:-- 14761
+[root@localhost yum.repos.d]# ll
+total 72
+drwxr-xr-x. 12 root root 4096 Dec 19 05:51 ansible
+-rw-r--r--.  1 root root  721 Dec 19 05:25 CentOS-Linux-AppStream.repo
+-rw-r--r--.  1 root root  706 Dec 19 05:25 CentOS-Linux-BaseOS.repo
+-rw-r--r--.  1 root root 1132 Dec 19 05:25 CentOS-Linux-ContinuousRelease.repo
+-rw-r--r--.  1 root root  318 Sep 15  2021 CentOS-Linux-Debuginfo.repo
+-rw-r--r--.  1 root root  734 Dec 19 05:25 CentOS-Linux-Devel.repo
+-rw-r--r--.  1 root root  706 Dec 19 05:25 CentOS-Linux-Extras.repo
+-rw-r--r--.  1 root root  721 Dec 19 05:25 CentOS-Linux-FastTrack.repo
+-rw-r--r--.  1 root root  742 Dec 19 05:25 CentOS-Linux-HighAvailability.repo
+-rw-r--r--.  1 root root  693 Sep 15  2021 CentOS-Linux-Media.repo
+-rw-r--r--.  1 root root  708 Dec 19 05:25 CentOS-Linux-Plus.repo
+-rw-r--r--.  1 root root  726 Dec 19 05:25 CentOS-Linux-PowerTools.repo
+-rw-r--r--.  1 root root 1124 Sep 15  2021 CentOS-Linux-Sources.repo
+-rw-r--r--.  1 root root 1919 Dec 19 06:53 docker-ce.repo
+-rw-r--r--.  1 root root 1680 Aug 30 20:48 epel-modular.repo
+-rw-r--r--.  1 root root 1332 Aug 30 20:48 epel.repo
+-rw-r--r--.  1 root root 1779 Aug 30 20:48 epel-testing-modular.repo
+-rw-r--r--.  1 root root 1431 Aug 30 20:48 epel-testing.repo
+[root@localhost yum.repos.d]# yum install -y docker
+Docker CE Stable - x86_64                                                                                                             218 kB/s |  66 kB     00:00    
+Last metadata expiration check: 0:00:01 ago on Thu 19 Dec 2024 06:53:14 AM UTC.
+Dependencies resolved.
+====================================================================================================================================================================== Package                                        Architecture             Version                                                    Repository                   Size 
+======================================================================================================================================================================Installing:
+ podman-docker                                  noarch                   3.3.1-9.module_el8.5.0+988+b1f0b741                        appstream                    56 k 
+Installing dependencies:
+ checkpolicy                                    x86_64                   2.9-1.el8                                                  baseos                      348 k 
+ conmon                                         x86_64                   2:2.0.29-1.module_el8.5.0+890+6b136101                     appstream                    52 k 
+ container-selinux                              noarch                   2:2.167.0-1.module_el8.5.0+911+f19012f9                    appstream                    54 k 
+ containernetworking-plugins                    x86_64                   1.0.0-1.module_el8.5.0+890+6b136101                        appstream                    19 M 
+ containers-common                              noarch                   2:1-2.module_el8.5.0+890+6b136101                          appstream                    79 k 
+ criu                                           x86_64                   3.15-3.module_el8.5.0+890+6b136101                         appstream                   518 k 
+ fuse-overlayfs                                 x86_64                   1.7.1-1.module_el8.5.0+890+6b136101                        appstream                    73 k 
+ fuse3                                          x86_64                   3.2.1-12.el8                                               baseos                       50 k 
+ fuse3-libs                                     x86_64                   3.2.1-12.el8                                               baseos                       94 k 
+ libnet                                         x86_64                   1.1.6-15.el8                                               appstream                    67 k 
+ libslirp                                       x86_64                   4.4.0-1.module_el8.5.0+890+6b136101                        appstream                    70 k 
+ podman                                         x86_64                   3.3.1-9.module_el8.5.0+988+b1f0b741                        appstream                    12 M 
+ podman-catatonit                               x86_64                   3.3.1-9.module_el8.5.0+988+b1f0b741                        appstream                   340 k 
+ policycoreutils-python-utils                   noarch                   2.9-16.el8                                                 baseos                      252 k 
+ protobuf-c                                     x86_64                   1.3.0-6.el8                                                appstream                    37 k 
+ python3-audit                                  x86_64                   3.0-0.17.20191104git1c2f876.el8                            baseos                       86 k 
+ python3-libsemanage                            x86_64                   2.9-6.el8                                                  baseos                      127 k 
+ python3-policycoreutils                        noarch                   2.9-16.el8                                                 baseos                      2.2 M 
+ python3-setools                                x86_64                   4.3.0-2.el8                                                baseos                      626 k
+ runc                                           x86_64                   1.0.2-1.module_el8.5.0+911+f19012f9                        appstream                   3.1 M 
+ slirp4netns                                    x86_64                   1.1.8-1.module_el8.5.0+890+6b136101                        appstream                    51 k 
+Enabling module streams:
+ container-tools                                                         rhel8
+
+Transaction Summary
+======================================================================================================================================================================Install  22 Packages
+
+Total download size: 39 M
+Installed size: 135 M
+Downloading Packages:
+(1/22): conmon-2.0.29-1.module_el8.5.0+890+6b136101.x86_64.rpm                                                                         95 kB/s |  52 kB     00:00    
+(2/22): container-selinux-2.167.0-1.module_el8.5.0+911+f19012f9.noarch.rpm                                                             95 kB/s |  54 kB     00:00     
+(3/22): containers-common-1-2.module_el8.5.0+890+6b136101.noarch.rpm                                                                  1.8 MB/s |  79 kB     00:00     
+(4/22): fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64.rpm                                                                 1.3 MB/s |  73 kB     00:00     
+(5/22): criu-3.15-3.module_el8.5.0+890+6b136101.x86_64.rpm                                                                            4.0 MB/s | 518 kB     00:00     
+(6/22): libnet-1.1.6-15.el8.x86_64.rpm                                                                                                1.3 MB/s |  67 kB     00:00     
+(7/22): libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64.rpm                                                                       2.0 MB/s |  70 kB     00:00     
+(8/22): podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64.rpm                                                               1.0 MB/s | 340 kB     00:00     
+(9/22): podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch.rpm                                                                  103 kB/s |  56 kB     00:00     
+(10/22): protobuf-c-1.3.0-6.el8.x86_64.rpm                                                                                            586 kB/s |  37 kB     00:00     
+(11/22): runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64.rpm                                                                          3.0 MB/s | 3.1 MB     00:01     
+(12/22): slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64.rpm                                                                   1.2 MB/s |  51 kB     00:00     
+(13/22): checkpolicy-2.9-1.el8.x86_64.rpm                                                                                             415 kB/s | 348 kB     00:00     
+(14/22): fuse3-3.2.1-12.el8.x86_64.rpm                                                                                                636 kB/s |  50 kB     00:00     
+(15/22): fuse3-libs-3.2.1-12.el8.x86_64.rpm                                                                                           639 kB/s |  94 kB     00:00     
+(16/22): policycoreutils-python-utils-2.9-16.el8.noarch.rpm                                                                           1.2 MB/s | 252 kB     00:00     
+(17/22): python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_64.rpm                                                                      75 kB/s |  86 kB     00:01     
+(18/22): python3-libsemanage-2.9-6.el8.x86_64.rpm                                                                                      93 kB/s | 127 kB     00:01     
+(19/22): podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64.rpm                                                                        1.9 MB/s |  12 MB     00:06     
+(20/22): containernetworking-plugins-1.0.0-1.module_el8.5.0+890+6b136101.x86_64.rpm                                                   2.3 MB/s |  19 MB     00:08     
+(21/22): python3-setools-4.3.0-2.el8.x86_64.rpm                                                                                       532 kB/s | 626 kB     00:01     
+(22/22): python3-policycoreutils-2.9-16.el8.noarch.rpm                                                                                1.1 MB/s | 2.2 MB     00:02     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------Total                                                                                                                                 4.6 MB/s |  39 MB     00:08     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                              1/1 
+  Installing       : python3-setools-4.3.0-2.el8.x86_64                                                                                                          1/22 
+  Installing       : python3-libsemanage-2.9-6.el8.x86_64                                                                                                        2/22 
+  Installing       : python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_64                                                                                        3/22 
+  Installing       : fuse3-libs-3.2.1-12.el8.x86_64                                                                                                              4/22 
+  Running scriptlet: fuse3-libs-3.2.1-12.el8.x86_64                                                                                                              4/22 
+  Installing       : fuse3-3.2.1-12.el8.x86_64                                                                                                                   5/22 
+  Installing       : fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                                                                   6/22 
+  Running scriptlet: fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                                                                   6/22 
+  Installing       : checkpolicy-2.9-1.el8.x86_64                                                                                                                7/22 
+  Installing       : python3-policycoreutils-2.9-16.el8.noarch                                                                                                   8/22 
+  Installing       : policycoreutils-python-utils-2.9-16.el8.noarch                                                                                              9/22 
+  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                                                                           10/22 
+  Installing       : container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                                                                           10/22 
+  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                                                                           10/22 
+  Installing       : protobuf-c-1.3.0-6.el8.x86_64                                                                                                              11/22 
+  Installing       : libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64                                                                                        12/22 
+  Installing       : slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64                                                                                     13/22 
+  Installing       : libnet-1.1.6-15.el8.x86_64                                                                                                                 14/22 
+  Running scriptlet: libnet-1.1.6-15.el8.x86_64                                                                                                                 14/22 
+  Installing       : criu-3.15-3.module_el8.5.0+890+6b136101.x86_64                                                                                             15/22 
+  Installing       : runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                                                                            16/22 
+  Installing       : containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                                                                                 17/22 
+  Installing       : containernetworking-plugins-1.0.0-1.module_el8.5.0+890+6b136101.x86_64                                                                     18/22 
+  Installing       : conmon-2:2.0.29-1.module_el8.5.0+890+6b136101.x86_64                                                                                       19/22 
+  Installing       : podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                20/22 
+  Installing       : podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                          21/22 
+  Installing       : podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch                                                                                   22/22 
+  Running scriptlet: container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                                                                           22/22 
+  Running scriptlet: podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch                                                                                   22/22 
+  Verifying        : conmon-2:2.0.29-1.module_el8.5.0+890+6b136101.x86_64                                                                                        1/22 
+  Verifying        : container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch                                                                            2/22 
+  Verifying        : containernetworking-plugins-1.0.0-1.module_el8.5.0+890+6b136101.x86_64                                                                      3/22 
+  Verifying        : containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                                                                                  4/22 
+  Verifying        : criu-3.15-3.module_el8.5.0+890+6b136101.x86_64                                                                                              5/22 
+  Verifying        : fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                                                                                   6/22 
+  Verifying        : libnet-1.1.6-15.el8.x86_64                                                                                                                  7/22 
+  Verifying        : libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64                                                                                         8/22 
+  Verifying        : podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                           9/22 
+  Verifying        : podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                10/22 
+  Verifying        : podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch                                                                                   11/22 
+  Verifying        : protobuf-c-1.3.0-6.el8.x86_64                                                                                                              12/22 
+  Verifying        : runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                                                                            13/22 
+  Verifying        : slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64                                                                                     14/22 
+  Verifying        : checkpolicy-2.9-1.el8.x86_64                                                                                                               15/22 
+  Verifying        : fuse3-3.2.1-12.el8.x86_64                                                                                                                  16/22 
+  Verifying        : fuse3-libs-3.2.1-12.el8.x86_64                                                                                                             17/22 
+  Verifying        : policycoreutils-python-utils-2.9-16.el8.noarch                                                                                             18/22 
+  Verifying        : python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_64                                                                                       19/22 
+  Verifying        : python3-libsemanage-2.9-6.el8.x86_64                                                                                                       20/22 
+  Verifying        : python3-policycoreutils-2.9-16.el8.noarch                                                                                                  21/22 
+  Verifying        : python3-setools-4.3.0-2.el8.x86_64                                                                                                         22/22 
+
+Installed:
+  checkpolicy-2.9-1.el8.x86_64                                                   conmon-2:2.0.29-1.module_el8.5.0+890+6b136101.x86_64
+  container-selinux-2:2.167.0-1.module_el8.5.0+911+f19012f9.noarch               containernetworking-plugins-1.0.0-1.module_el8.5.0+890+6b136101.x86_64
+  containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                     criu-3.15-3.module_el8.5.0+890+6b136101.x86_64
+  fuse-overlayfs-1.7.1-1.module_el8.5.0+890+6b136101.x86_64                      fuse3-3.2.1-12.el8.x86_64
+  fuse3-libs-3.2.1-12.el8.x86_64                                                 libnet-1.1.6-15.el8.x86_64
+  libslirp-4.4.0-1.module_el8.5.0+890+6b136101.x86_64                            podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64
+  podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                    podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch
+  policycoreutils-python-utils-2.9-16.el8.noarch                                 protobuf-c-1.3.0-6.el8.x86_64
+  python3-audit-3.0-0.17.20191104git1c2f876.el8.x86_64                           python3-libsemanage-2.9-6.el8.x86_64
+  python3-policycoreutils-2.9-16.el8.noarch                                      python3-setools-4.3.0-2.el8.x86_64
+  runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                slirp4netns-1.1.8-1.module_el8.5.0+890+6b136101.x86_64
+
+Complete!
+[root@localhost yum.repos.d]# vi docker-ce.repo
+[root@localhost yum.repos.d]# cd
+[root@localhost ~]# vi docker-kube-install.yml
+[root@localhost ~]# systemctl status docker
+Unit docker.service could not be found.
+[root@localhost ~]# yum install -y docker-ce
+Last metadata expiration check: 0:05:26 ago on Thu 19 Dec 2024 06:53:14 AM UTC.
+Error: 
+ Problem: problem with installed package podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch
+  - package docker-ce-3:26.1.3-1.el8.x86_64 conflicts with docker provided by podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch
+  - cannot install the best candidate for the job
+(try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+[root@localhost ~]# systemctl status docker*
+Unit docker-kube-install.yml.service could not be found.
+[root@localhost ~]# yum install -y docker-ce -allowerasing
+usage: yum install [-c [config file]] [-q] [-v] [--version]
+                   [--installroot [path]] [--nodocs] [--noplugins]
+                   [--enableplugin [plugin]] [--disableplugin [plugin]]
+                   [--releasever RELEASEVER] [--setopt SETOPTS]
+                   [--skip-broken] [-h] [--allowerasing] [-b | --nobest] [-C]
+                   [-R [minutes]] [-d [debug level]] [--debugsolver]
+                   [--showduplicates] [-e ERRORLEVEL] [--obsoletes]
+                   [--rpmverbosity [debug level name]] [-y] [--assumeno]
+                   [--enablerepo [repo]] [--disablerepo [repo] | --repo
+                   [repo]] [--enable | --disable] [-x [package]]
+                   [--disableexcludes [repo]] [--repofrompath [repo,path]]
+                   [--noautoremove] [--nogpgcheck] [--color COLOR] [--refresh]
+                   [-4] [-6] [--destdir DESTDIR] [--downloadonly]
+                   [--comment COMMENT] [--bugfix] [--enhancement]
+                   [--newpackage] [--security] [--advisory ADVISORY]
+                   [--bz BUGZILLA] [--cve CVES]
+                   [--sec-severity {Critical,Important,Moderate,Low}]
+                   [--forcearch ARCH]
+                   PACKAGE [PACKAGE ...]
+yum install: error: unrecognized arguments: -allowerasing
+[root@localhost ~]# yum install -y docker-ce --allowerasing
+Last metadata expiration check: 0:06:53 ago on Thu 19 Dec 2024 06:53:14 AM UTC.
+Dependencies resolved.
+====================================================================================================================================================================== Package                                     Architecture             Version                                                Repository                          Size 
+======================================================================================================================================================================Installing:
+ docker-ce                                   x86_64                   3:26.1.3-1.el8                                         docker-ce-stable                    27 M 
+Installing dependencies:
+ containerd.io                               x86_64                   1.6.32-3.1.el8                                         docker-ce-stable                    35 M 
+     replacing  runc.x86_64 1.0.2-1.module_el8.5.0+911+f19012f9
+ docker-ce-cli                               x86_64                   1:26.1.3-1.el8                                         docker-ce-stable                   7.8 M 
+ libcgroup                                   x86_64                   0.41-19.el8                                            baseos                              70 k 
+Installing weak dependencies:
+ docker-buildx-plugin                        x86_64                   0.14.0-1.el8                                           docker-ce-stable                    14 M 
+ docker-ce-rootless-extras                   x86_64                   26.1.3-1.el8                                           docker-ce-stable                   5.0 M 
+ docker-compose-plugin                       x86_64                   2.27.0-1.el8                                           docker-ce-stable                    13 M 
+Removing dependent packages:
+ containers-common                           noarch                   2:1-2.module_el8.5.0+890+6b136101                      @appstream                         236 k 
+ podman                                      x86_64                   3.3.1-9.module_el8.5.0+988+b1f0b741                    @appstream                          48 M 
+ podman-catatonit                            x86_64                   3.3.1-9.module_el8.5.0+988+b1f0b741                    @appstream                         760 k 
+ podman-docker                               noarch                   3.3.1-9.module_el8.5.0+988+b1f0b741                    @appstream                         230   
+
+Transaction Summary
+======================================================================================================================================================================Install  7 Packages
+Remove   4 Packages
+
+Total download size: 102 M
+Downloading Packages:
+(1/7): libcgroup-0.41-19.el8.x86_64.rpm                                                                                                34 kB/s |  70 kB     00:02    
+(2/7): docker-buildx-plugin-0.14.0-1.el8.x86_64.rpm                                                                                   1.1 MB/s |  14 MB     00:12     
+(3/7): docker-ce-26.1.3-1.el8.x86_64.rpm                                                                                              2.4 MB/s |  27 MB     00:11     
+(4/7): containerd.io-1.6.32-3.1.el8.x86_64.rpm                                                                                        2.5 MB/s |  35 MB     00:13     
+(5/7): docker-ce-rootless-extras-26.1.3-1.el8.x86_64.rpm                                                                              2.6 MB/s | 5.0 MB     00:01     
+(6/7): docker-ce-cli-26.1.3-1.el8.x86_64.rpm                                                                                          1.7 MB/s | 7.8 MB     00:04     
+(7/7): docker-compose-plugin-2.27.0-1.el8.x86_64.rpm                                                                                  3.0 MB/s |  13 MB     00:04     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------Total                                                                                                                                 5.6 MB/s | 102 MB     00:18     
+Docker CE Stable - x86_64                                                                                                              14 kB/s | 1.6 kB     00:00    
+Importing GPG key 0x621E9F35:
+ Userid     : "Docker Release (CE rpm) <docker@docker.com>"
+ Fingerprint: 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35
+ From       : https://download.docker.com/linux/centos/gpg
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                              1/1 
+  Running scriptlet: docker-compose-plugin-2.27.0-1.el8.x86_64                                                                                                    1/1 
+  Installing       : docker-compose-plugin-2.27.0-1.el8.x86_64                                                                                                   1/12 
+  Running scriptlet: docker-compose-plugin-2.27.0-1.el8.x86_64                                                                                                   1/12 
+  Installing       : docker-buildx-plugin-0.14.0-1.el8.x86_64                                                                                                    2/12 
+  Running scriptlet: docker-buildx-plugin-0.14.0-1.el8.x86_64                                                                                                    2/12 
+  Installing       : docker-ce-cli-1:26.1.3-1.el8.x86_64                                                                                                         3/12 
+  Running scriptlet: docker-ce-cli-1:26.1.3-1.el8.x86_64                                                                                                         3/12 
+  Installing       : containerd.io-1.6.32-3.1.el8.x86_64                                                                                                         4/12 
+  Running scriptlet: containerd.io-1.6.32-3.1.el8.x86_64                                                                                                         4/12 
+  Running scriptlet: libcgroup-0.41-19.el8.x86_64                                                                                                                5/12 
+  Installing       : libcgroup-0.41-19.el8.x86_64                                                                                                                5/12 
+  Running scriptlet: libcgroup-0.41-19.el8.x86_64                                                                                                                5/12 
+  Installing       : docker-ce-rootless-extras-26.1.3-1.el8.x86_64                                                                                               6/12 
+  Running scriptlet: docker-ce-rootless-extras-26.1.3-1.el8.x86_64                                                                                               6/12 
+  Installing       : docker-ce-3:26.1.3-1.el8.x86_64                                                                                                             7/12 
+  Running scriptlet: docker-ce-3:26.1.3-1.el8.x86_64                                                                                                             7/12 
+  Erasing          : podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch                                                                                    8/12 
+  Erasing          : podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                           9/12 
+  Running scriptlet: podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                           9/12 
+  Erasing          : containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                                                                                 10/12 
+  Erasing          : podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                11/12 
+  Obsoleting       : runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                                                                            12/12 
+  Running scriptlet: runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                                                                            12/12 
+  Verifying        : libcgroup-0.41-19.el8.x86_64                                                                                                                1/12 
+  Verifying        : containerd.io-1.6.32-3.1.el8.x86_64                                                                                                         2/12 
+  Verifying        : runc-1.0.2-1.module_el8.5.0+911+f19012f9.x86_64                                                                                             3/12 
+  Verifying        : docker-buildx-plugin-0.14.0-1.el8.x86_64                                                                                                    4/12 
+  Verifying        : docker-ce-3:26.1.3-1.el8.x86_64                                                                                                             5/12 
+  Verifying        : docker-ce-cli-1:26.1.3-1.el8.x86_64                                                                                                         6/12 
+  Verifying        : docker-ce-rootless-extras-26.1.3-1.el8.x86_64                                                                                               7/12 
+  Verifying        : docker-compose-plugin-2.27.0-1.el8.x86_64                                                                                                   8/12 
+  Verifying        : containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                                                                                  9/12 
+  Verifying        : podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                          10/12 
+  Verifying        : podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                                                                                11/12 
+  Verifying        : podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch                                                                                   12/12 
+
+Installed:
+  containerd.io-1.6.32-3.1.el8.x86_64             docker-buildx-plugin-0.14.0-1.el8.x86_64    docker-ce-3:26.1.3-1.el8.x86_64   docker-ce-cli-1:26.1.3-1.el8.x86_64   
+  docker-ce-rootless-extras-26.1.3-1.el8.x86_64   docker-compose-plugin-2.27.0-1.el8.x86_64   libcgroup-0.41-19.el8.x86_64
+Removed:
+  containers-common-2:1-2.module_el8.5.0+890+6b136101.noarch                          podman-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64
+  podman-catatonit-3.3.1-9.module_el8.5.0+988+b1f0b741.x86_64                         podman-docker-3.3.1-9.module_el8.5.0+988+b1f0b741.noarch
+
+Complete!
+[root@localhost ~]# systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: https://docs.docker.com
+[root@localhost ~]# systemctl start docker
+[root@localhost ~]# systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2024-12-19 07:04:11 UTC; 2s ago
+     Docs: https://docs.docker.com
+ Main PID: 41398 (dockerd)
+    Tasks: 7
+   Memory: 121.4M
+   CGroup: /system.slice/docker.service
+           └─41398 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Dec 19 07:04:07 localhost.localdomain systemd[1]: Starting Docker Application Container Engine...
+Dec 19 07:04:08 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:08.758997305Z" level=info msg="Starting up"
+Dec 19 07:04:09 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:09.117830615Z" level=info msg="Loading containers: start."
+Dec 19 07:04:10 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:10.649942627Z" level=info msg="Loading containers: done."
+Dec 19 07:04:10 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:10.936137743Z" level=info msg="Docker daemon" commit=8e96db1 containerd-snapshotter=fals>Dec 19 07:04:10 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:10.937492384Z" level=info msg="Daemon has completed initialization"
+Dec 19 07:04:11 localhost.localdomain dockerd[41398]: time="2024-12-19T07:04:11.226833825Z" level=info msg="API listen on /run/docker.sock"
+Dec 19 07:04:11 localhost.localdomain systemd[1]: Started Docker Application Container Engine.
+[root@localhost ~]# 
